@@ -1,0 +1,79 @@
+
+.main-page-wrapper{
+    width:100%;
+    margin-bottom: 60px;
+}
+
+.attraction-wrapper{
+    margin:10px;
+}
+
+.attraction-img-wrapper {
+    display:flex;
+    min-width: 100%;
+    overflow-x:scroll;
+}
+
+.attraction-img-wrapper::-webkit-scrollbar{
+    display: none; 
+}
+
+.attraction-img-wrapper img{
+    margin-right: 10px;
+}
+
+
+/* login css */
+.login-page-wrapper{
+
+}
+
+
+
+
+/* place-detail css */
+.place-detail-header{
+    display: flex;
+    justify-content: space-between;
+}
+.place-detail-header .FontAwesomeIcon {
+    margin-top:10px;
+}
+
+.place-detail-header h2{
+    font-family: "Jost", sans-serif;
+}
+
+.place-img-wrapper{
+    display:flex;
+    min-width: 100%;
+    overflow-x:scroll;
+}
+
+.name-saved-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.detail-icon-wrapper{
+    padding:4px;
+}
+.detail-icon-wrapper svg{
+    padding:5px 6.5px;
+    border: 1.3px solid #000;
+    border-radius: 1000px;
+    width : 20px;
+
+}
+
+.place-info-wrapper{
+    padding:10px 3px;
+}
+
+
+.narrative-info-wrapper{
+    padding: 10px 0px;
+    
+
+}

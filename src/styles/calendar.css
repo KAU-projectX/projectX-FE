@@ -1,0 +1,118 @@
+@import '../styles/woravel.css';
+
+.calendar-page-wrapper{
+    margin-bottom:50px;
+}
+
+/* this is full calendar custom */
+
+
+:root {
+    --fc-border-color: #fff;
+    --fc-event-bg-color: #FF9559;
+    --fc-event-border-color: #fff; 
+    --fc-now-indicator-color:#FF9559;
+    --fc-button-active-border-color: #FF9559;
+    --fc-button-active-bg-color : #fff;
+  }
+
+
+.fc {
+    max-width: 100%;
+}
+.fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 2px 4px;
+}
+
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-top:1em;
+    margin-left:1em;
+    font-size: 14px;
+}
+
+.fc .fc-daygrid-body-natural .fc-daygrid-day-events{
+    margin-bottom: 0.6em;
+}
+
+.fc .fc-button-primary {
+    background-color:#FF9559;
+    border-color: #FF9559;
+    color: #fff;
+}
+.fc .fc-button-primary:disabled {
+    background-color:#FF9559;
+    border-color: #FF9559;
+    color: #fff;
+}
+
+
+.fc .fc-button-primary:hover{
+    background-color:#FF9559;
+    border-color: #FF9559;
+    color: #fff;
+}
+.fc .fc-button:disabled{
+    opacity: 1;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child){
+    border-radius: 1000px;
+    margin:0px 2px;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:first-child){
+    border-radius: 1000px;
+    margin:0px 2px;
+}
+
+
+
+
+
+/* !!  */
+.plan-wrapper{
+    padding: 15px;
+    font-size: 16px;
+    font-family: Inter;
+}
+
+.plan-box-btn{
+    margin-top:10px;
+    width:100%;
+    height: 40px;
+    border-radius: 10px;
+    border:2px solid #FF9559;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+}
+
+.plan-plus-wrapper{
+    text-align: center;
+    font-size: 15px;
+    color:#fff;
+    background-color: black;
+    padding: 2px 6px;
+    border-radius: 100px;
+}
+
+
+/* 계획된 일정 !!  */
+.date-plan-wrapper{
+    padding: 15px;
+    font-size: 16px;
+    font-family: Inter;
+}
+/* travel - work 계획 색상 변경 */
+
+.work-event-item{
+    padding: 15px;
+    font-size: 16px;
+    font-family: Inter;
+
+}

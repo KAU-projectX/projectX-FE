@@ -1,0 +1,57 @@
+/* header, footer layout css */
+
+/* Header */
+.footer-wrap{
+    background-color: #fff;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    height: 45px;
+    border: 1px solid rgba(101, 101, 101, 0.454);
+    border-radius: 15px;
+    box-shadow: 0 5px 5px 0 gray;
+}
+
+.nav-link{
+    color:#1f1f1f;
+    text-decoration: none;
+    float: left;
+    width: 20%;
+    text-align: center;
+    /* 세로길이 설정 */
+    height: 45px;
+    line-height: 45px;
+}
+
+.main-link{
+    color:#1f1f1f;
+    text-decoration: none;
+
+}
+
+.active {
+    color: #FF9559;
+}
+
+
+/* Header */
+.header-wrap{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+}
+
+.logo-wrapper{
+    font-size: 30px;
+}
+
+.search-icon-wrapper{
+    padding: 2px 3px;
+}
+
+.logo-icon-wrapper{
+    padding: 0px 5px;
+    color: #FF9559;
+}
+
