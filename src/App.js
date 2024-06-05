@@ -6,9 +6,10 @@ import Footer from "./components/Footer";
 import Community from "./pages/Community";
 import Travel from "./pages/Travel";
 import Mypage from "./pages/Mypage";
-import PlaceDetail from "./assets/PlaceDetail";
+import PlaceDetail from "./components/PlaceDetail";
 import Header from "./components/Header";
-import Login from "./components/Login";
+import Login from "./pages/Login";
+import CallBack from "./components/CallBack";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path = "/main/:name" element = {<PlaceDetail/>}/>
         <Route path = "/travel/:name" element = {<PlaceDetail/>}/>
         <Route path ="/mypage" element = {<Mypage/>}/>
+        <Route path ="/login/callback" element = {<CallBack/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

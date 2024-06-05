@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/layout.css'
-import "../assets/FontAwesome";
+import "./FontAwesome";
 import { useLocation } from 'react-router-dom';
 
 export default function Footer() {
