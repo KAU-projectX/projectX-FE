@@ -13,7 +13,12 @@ import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-i
 import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 
+import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesRight} from "@fortawesome/free-solid-svg-icons";
+
 
 
 
 library.add(faHouse,faLaptop,faSuitcase,faComments,faCalendar,faUser,faMagnifyingGlass,faFile,faMessage,faShareNodes,faBookmarkSolid,faBookmarkRegular);
+library.add(faSuitcaseRolling,faAnglesRight,faAnglesLeft);

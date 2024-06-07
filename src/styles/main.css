@@ -4,6 +4,12 @@
     margin-bottom: 60px;
 }
 
+.main-filter-wrapper{
+    padding-top:5px;
+    display: flex;
+    justify-content: center;
+}
+
 .attraction-wrapper{
     margin:10px;
 }

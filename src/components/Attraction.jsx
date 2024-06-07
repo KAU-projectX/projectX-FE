@@ -17,7 +17,7 @@ export default function Attraction({ place }) {
     return (
       <div className='attraction-wrapper' onClick={onClickPlaceItem}>
         <div style={{fontWeight:"bold", fontSize:"20px", padding:"10px 0px 5px 0px"}}>{place.name}</div>
-        <div className="address" style={{fontWeight:"light", fontSize:"13px"}}>{place.address}</div>
+        <div className="address" style={{fontWeight:"light", fontSize:"13px", marginBottom:"10px"}}>{place.address}</div>
         <div className="attraction-img-wrapper">
           {place.img_src.map((src, index) => (
             <img key={index} src={src} style={{ maxWidth: "100%", height: "236px" }} alt={`${index}`}/>
