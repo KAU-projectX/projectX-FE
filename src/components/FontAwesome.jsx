@@ -16,9 +16,11 @@ import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAnglesRight} from "@fortawesome/free-solid-svg-icons";
-
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 
 
 library.add(faHouse,faLaptop,faSuitcase,faComments,faCalendar,faUser,faMagnifyingGlass,faFile,faMessage,faShareNodes,faBookmarkSolid,faBookmarkRegular);
-library.add(faSuitcaseRolling,faAnglesRight,faAnglesLeft);
+library.add(faSuitcaseRolling,faAnglesRight,faAnglesLeft,faPhone,faLocationDot,faCopy);

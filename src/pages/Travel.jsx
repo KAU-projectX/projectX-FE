@@ -1,5 +1,5 @@
 import React from 'react'
-import Attraction from '../components/Attraction';
+import Places from '../components/Places'
 
 
 
@@ -24,7 +24,7 @@ export default function Travel() {
     <div className='travel-page-wrapper'>
       <div className="main-attraction-wrapper">
         {attractionPlace.map((place, index) => (
-          <Attraction key={index} place={place}/>
+          <Places key={index} place={place}/>
         ))}
       </div>
     </div>

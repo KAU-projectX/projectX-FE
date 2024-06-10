@@ -5,28 +5,34 @@
 }
 
 .main-filter-wrapper{
-    padding-top:5px;
+    padding:10px 0 20px 0 ;
     display: flex;
     justify-content: center;
 }
 
-.attraction-wrapper{
-    margin:10px;
+/* place component css  */
+
+.places-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 15px 10px  ;
+    
 }
 
-.attraction-img-wrapper {
-    display:flex;
-    min-width: 100%;
-    overflow-x:scroll;
+.places-img-wrapper img{
+
+    max-width: 100px;
+    max-height: 80px;
+    border-radius: 10px;
 }
 
-.attraction-img-wrapper::-webkit-scrollbar{
-    display: none; 
+.places-text-wrapper{
+    font-weight:300;
+    font-size: 14px;
 }
 
-.attraction-img-wrapper img{
-    margin-right: 10px;
-}
 
 
 /* login css */
@@ -34,10 +40,31 @@
 
 }
 
-
-
-
 /* place-detail css */
+.place-detail-wrapper{
+    padding: 15px 10px;
+}
+
+.place-first-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+
+}
+
+.place-tel-wrapper a {
+    margin-left : 5px;
+    text-decoration: none ;
+    color: #000;
+    font-size: 16px;
+}
+
+.place-address-wrapper{
+    display: flex;
+}
+
 .place-detail-header{
     display: flex;
     justify-content: space-between;
@@ -65,6 +92,7 @@
 .detail-icon-wrapper{
     padding:4px;
 }
+
 .detail-icon-wrapper svg{
     padding:5px 6.5px;
     border: 1.3px solid #000;
@@ -73,13 +101,6 @@
 
 }
 
-.place-info-wrapper{
-    padding:10px 3px;
-}
-
-
 .narrative-info-wrapper{
     padding: 10px 0px;
-    
-
 }
