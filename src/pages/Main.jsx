@@ -30,6 +30,8 @@ const libraries = [
     img_src: [ "https://mblogthumb-phinf.pstatic.net/MjAyMzAzMTdfMjM3/MDAxNjc5MDQyMjI5ODYy.6TU04oH0AC3eD_8gFoqcWQdNKxbse03Mm7jgHwsB7ucg.581kNlJScHA2fDFN2FLnwjGf1vF41zYgueARpQgad_Ug.JPEG.hyeyoung217/20230313%EF%BC%BF155851.jpg?type=w800"],
     tel : "0507-1406-0938", 
     open_time : "12:00",
+    lat : 33.450701,
+    lng : 126.570667,
   },
   {
     name: "유람위드북스",

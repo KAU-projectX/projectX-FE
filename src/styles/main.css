@@ -40,9 +40,11 @@
 
 }
 
+
 /* place-detail css */
 .place-detail-wrapper{
     padding: 15px 10px;
+    margin-bottom: 50px;
 }
 
 .place-first-line{
@@ -65,6 +67,11 @@
     display: flex;
 }
 
+
+.detail-map-wrapper{
+    margin: 10px 0;
+    align-items: center;
+}
 .place-detail-header{
     display: flex;
     justify-content: space-between;

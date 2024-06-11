@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Community from "./pages/Community";
 import Travel from "./pages/Travel";
 import Mypage from "./pages/Mypage";
-import PlaceDetail from "./components/PlaceDetail";
+import PlaceDetail from "./pages/PlaceDetail";
 import Header from "./components/Header";
 import Login from "./pages/Login";
 import CallBack from "./components/CallBack";
