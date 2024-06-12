@@ -23,7 +23,7 @@ export default function Footer() {
     
   return (
     <div className ='footer-wrap'>
-        <Link to="/" className="nav-link" onClick={() => setActiveNav(1)}> 
+        <Link to="/main" className="nav-link" onClick={() => setActiveNav(1)}> 
             <div>
                 <FontAwesomeIcon
                 icon ="laptop"

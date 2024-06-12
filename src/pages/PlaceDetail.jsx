@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/main.css'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import KakaoMap from '../components/KakaoMap';
 import logo from '../assets/img/kakaomap_basic.png'
@@ -8,8 +8,37 @@ import SuggestedPlaces from '../components/\bSuggestedPlaces';
 import styled from 'styled-components';
 
 
+const Wrapper = styled.div `
+display : flex;
+overflow-x : scroll;
+min-width: 100%;
+`
 
-export default function PlaceDetail() {
+
+const Title = styled.div `
+color: ${props => props.color || 'black'};
+font-family : 'sans-serif';
+font-weight : 800;
+font-size : 20px ;
+padding : 10px 0 ;
+`
+
+const Text = styled.div`
+font-size : 13px;
+color : #3E3F3C;
+
+`
+
+export default function PlaceDetail({ updateClickedName }) {
+
+  const { name } = useParams();
+  const decodedName = decodeURIComponent(name);
+
+  useEffect(() => {
+    updateClickedName(decodedName);
+  }, [decodedName, updateClickedName]);
+
+
   const {state} = useLocation();
   const [savePlace,setSavePlace] = useState(0);
 
@@ -28,26 +57,7 @@ export default function PlaceDetail() {
       })
   }
 
-  const Wrapper = styled.div `
-    display : flex;
-    overflow-x : scroll;
-    min-width: 100%;
-  `
 
-
-  const Title = styled.div `
-    color: ${props => props.color};
-    font-family : 'sans-serif';
-    font-weight : 800;
-    font-size : 20px ;
-    padding : 10px 0 ;
-  `
-
-  const Text = styled.div`
-    font-size : 13px;
-    color : #3E3F3C;
-
-  `
 
   const suggestedWork = [
     {
@@ -146,7 +156,7 @@ export default function PlaceDetail() {
             &nbsp; 카카오맵   
           </div>
           <div> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
-            <a href='link'>이 링크는 어디서 제공 ?  </a>
+            <a href='https://place.map.kakao.com/m/528690715' style={{fontSize:"14px"}}>https://place.map.kakao.com/m/528690715 </a>
             <KakaoMap Lat={state.lat} Lng = {state.lng}/>
           </div>
           

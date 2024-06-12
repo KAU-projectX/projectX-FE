@@ -9,7 +9,7 @@ export default function Places({ place }) {
     const onClickPlaceItem=()=>{
         if (location.pathname === '/travel') {
             navigate(`/travel/${place.name}`, { state: place });
-        }else if(location.pathname === '/'){
+        }else if(location.pathname === '/main'){
             navigate(`/main/${place.name}`, { state: place });
         }
     }

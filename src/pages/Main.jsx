@@ -25,7 +25,7 @@ const bookCafes = [
 
 const libraries = [
   {
-    name: "도서관 ? 도토관",
+    name: "도토관",
     address: "제주 제주시 조천읍 신북로 453 도토관",
     img_src: [ "https://mblogthumb-phinf.pstatic.net/MjAyMzAzMTdfMjM3/MDAxNjc5MDQyMjI5ODYy.6TU04oH0AC3eD_8gFoqcWQdNKxbse03Mm7jgHwsB7ucg.581kNlJScHA2fDFN2FLnwjGf1vF41zYgueARpQgad_Ug.JPEG.hyeyoung217/20230313%EF%BC%BF155851.jpg?type=w800"],
     tel : "0507-1406-0938", 
@@ -72,7 +72,10 @@ const cafes = [
 ]
 
 
-export default function Main() {
+export default function Main ({ updateClickedName }) {
+  const handleClick = (name) => {
+    updateClickedName(name);
+  };
 
   const filters = [bookCafes, libraries, cafes];
   const filtersKor = ["북카페","도서관","카페"]
@@ -94,14 +97,14 @@ export default function Main() {
   return (
     <div className = "main-page-wrapper">
       <div className = "main-filter-wrapper" >
-        <FontAwesomeIcon icon = "angles-left" style={{padding:"3px 0px"}} onClick={prevBtnClick}/>
+        <FontAwesomeIcon icon = "angle-left" style={{padding:"3px 0px"}} onClick={prevBtnClick}/>
         <div style={{padding: "0px 5px"}}> {filtersKor[pageSlider] }  </div>
-        <FontAwesomeIcon icon = "angles-right" style={{padding:"3px 0px"}} onClick={nextBtnClick}/>
+        <FontAwesomeIcon icon = "angle-right" style={{padding:"3px 0px"}} onClick={nextBtnClick}/>
 
       </div>
       <div className="main-attraction-wrapper">
         {currentFilter.map((place, index) => (
-          <Attraction key={index} place={place}/>
+          <Attraction key={index} place={place} onClick={handleClick}/>
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 /* header, footer layout css */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
-/* Header */
+/* Footer */
 .footer-wrap{
     background-color: #fff;
     position: fixed;
@@ -20,7 +20,6 @@
     float: left;
     width: 20%;
     text-align: center;
-    /* 세로길이 설정 */
     height: 45px;
     line-height: 45px;
 }
@@ -35,7 +34,7 @@
 
 .active {
     color: #FF9559;
-}
+} 
 
 
 /* Header */
@@ -43,8 +42,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center; /* 세로 중앙 정렬을 위해 추가 */
-    border-bottom: 1px solid #000;
     padding: 10px; /* 필요에 따라 패딩 추가 */
+    box-shadow: 0px 1px 5px;
   }
 
 .main-link {
