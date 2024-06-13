@@ -21,6 +21,8 @@ export default function Header({ clickedName }) {
     const isCommnuPath = /^\/community(\/.*)?$/.test(location.pathname);
     const isCalendarPath = /^\/calendar(\/.*)?$/.test(location.pathname);
     const isMypagePath = /^\/mypage(\/.*)?$/.test(location.pathname);
+    const isLoginPath = /^\/login(\/.*)?$/.test(location.pathname);
+    const isIntroPath = /^\/(\/.*)?$/.test(location.pathname);
     
     
 
@@ -112,7 +114,12 @@ export default function Header({ clickedName }) {
               </div>
         </>
       )
-    }else{
+    }else if(isLoginPath || isIntroPath){
+      return (
+        <></>
+      )
+    }
+    else{
       return(
       <>
         <Link to="/main" className="main-link" style={{alignContent:"center !important" }}>
@@ -126,12 +133,13 @@ export default function Header({ clickedName }) {
         </Link>
       </>
       )
-
     }
   };
 
+  const isNoHeaderWrap = /^\/login(\/.*)?$/.test(location.pathname) || /^\/(\/.*)?$/.test(location.pathname) ;
+
   return (
-    <div className='header-wrap'>
+    <div className={isNoHeaderWrap ? '' : 'header-wrap'}>
       {renderComponent()}
     </div>
   );

@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 export default function Footer() {
 
+
     const location = useLocation();
 
     const [activeNav, setActiveNav] = useState(1);
@@ -20,8 +21,10 @@ export default function Footer() {
     },[location])
 
 
-    
-  return (
+
+    if (window.location.pathname === '/') 
+        return null; 
+    return (
     <div className ='footer-wrap'>
         <Link to="/main" className="nav-link" onClick={() => setActiveNav(1)}> 
             <div>

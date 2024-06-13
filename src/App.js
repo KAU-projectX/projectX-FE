@@ -8,9 +8,10 @@ import Travel from "./pages/Travel";
 import Mypage from "./pages/Mypage";
 import PlaceDetail from "./pages/PlaceDetail";
 import Header from "./components/Header";
-import Login from "./pages/Login";
+import Login from "./pages/LoginModal";
 import CallBack from "./components/CallBack";
 import useClickedName from './hooks/useClickedPlaceName';
+import Intro from "./pages/Intro";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <BrowserRouter>
       <Header  clickedName={clickedName}/>
       <Routes>
+      <Route path = "/" element ={<Intro/>} />
         <Route path = "/main" element ={<Main updateClickedName={updateClickedName} />} />
         <Route path ="/*" element = {<NotFound/>}/>
         <Route path ="/login" element = {<Login/>}/>

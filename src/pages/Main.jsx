@@ -98,7 +98,7 @@ export default function Main ({ updateClickedName }) {
     <div className = "main-page-wrapper">
       <div className = "main-filter-wrapper" >
         <FontAwesomeIcon icon = "angle-left" style={{padding:"3px 0px"}} onClick={prevBtnClick}/>
-        <div style={{padding: "0px 5px"}}> {filtersKor[pageSlider] }  </div>
+        <div style={{padding: "0px 5px", fontSize :"16px", fontWeight:"700"}}> &nbsp; {filtersKor[pageSlider] }&nbsp;   </div>
         <FontAwesomeIcon icon = "angle-right" style={{padding:"3px 0px"}} onClick={nextBtnClick}/>
 
       </div>

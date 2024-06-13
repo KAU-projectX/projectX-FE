@@ -2,6 +2,11 @@
 .main-page-wrapper{
     width:100%;
     margin-bottom: 60px;
+    background-image: url('../assets/img/background.png');
+    background-repeat: no-repeat;
+    background-size: 100px;
+    z-index: 999;
+
 }
 
 .main-filter-wrapper{
