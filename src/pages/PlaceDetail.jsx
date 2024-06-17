@@ -3,7 +3,7 @@ import '../styles/main.css'
 import { useLocation, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import KakaoMap from '../components/KakaoMap';
-import logo from '../assets/img/kakaomap_basic.png'
+import kakaoLogo from '../assets/img/kakaomap_basic.png'
 import SuggestedPlaces from '../components/\bSuggestedPlaces';
 import styled from 'styled-components';
 
@@ -11,6 +11,8 @@ import styled from 'styled-components';
 const Wrapper = styled.div `
 display : flex;
 overflow-x : scroll;
+overflow-y : hidden;
+min-height:100%;
 min-width: 100%;
 `
 
@@ -152,14 +154,13 @@ export default function PlaceDetail({ updateClickedName }) {
 
         <div className ="detail-map-wrapper" style={{margin : "20px 0"}}>
           <div style={{display:"flex", fontSize:"16px", fontFamily :"sans-serif"}}>
-            <img src = {logo} alt = "카카오맵" style={{maxWidth : "25px"}}/>
+            <img src = {kakaoLogo} alt = "카카오맵" style={{maxWidth : "25px"}}/>
             &nbsp; 카카오맵   
           </div>
           <div> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
             <a href='https://place.map.kakao.com/m/528690715' style={{fontSize:"14px"}}>https://place.map.kakao.com/m/528690715 </a>
-            <KakaoMap Lat={state.lat} Lng = {state.lng}/>
+            <div style={{padding:"10px"}}><KakaoMap Lat={state.lat} Lng = {state.lng} /></div>
           </div>
-          
         </div>
 
 

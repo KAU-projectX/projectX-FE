@@ -38,6 +38,7 @@ export default function SuggestedPlaces({place}) {
   
 
   return (
+    <>
     <div className = "sug-place-wrapper" onClick={onClickPlaceItem}>
       <Box>
         <img src = {place.img_src} alt="?" style={{maxWidth:"150px",maxHeight:"150px", minWidth:"150px",minHeight:"150px",overflow:"hidden", borderRadius : "5px"}}/>
@@ -45,5 +46,6 @@ export default function SuggestedPlaces({place}) {
         <div style={{color : "#8C8D8A", fontSize:"14px"}}> {readdress} </div>
       </Box>  
     </div>
+    </>
   );
 }

@@ -4,8 +4,8 @@ import styled, { keyframes, css } from 'styled-components';
 import bg1 from '../assets/img/Intro1.jpeg';
 import bg2 from '../assets/img/Intro2.jpeg';
 import bg3 from '../assets/img/Intro3.png';
-import logo from '../assets/img/woravel_logo.png'; // 로고 이미지 경로
-import LoginModal from './LoginModal';
+import logo from '../assets/img/woravel_logo.svg'; // 로고 이미지 경로
+import { useNavigate } from 'react-router-dom';
 
 // 이미지 배열
 const images = [bg1, bg2, bg3];
@@ -83,40 +83,42 @@ const IntroImg = styled.div`
 `;
 
 export default function Intro() {
-    const [currentImage, setCurrentImage] = useState(0);
-    const [nextImage, setNextImage] = useState(1);
-    const [isTransitioning, setIsTransitioning] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setNextImage((prevImage) => (prevImage + 1) % images.length);
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-          setIsTransitioning(false);
-        }, 1500); // 이미지 전환 시간을 고려하여 타이머 설정
-      }, 5000); // 5초마다 이미지 전환
-  
-      return () => clearInterval(interval);
-    }, [currentImage]);
-  
-    const openModal = () => {
-      setIsModalOpen(true);
-    };
-  
-    const closeModal = () => {
-      setIsModalOpen(false);
-    };
-  
-    return (
-      <BackgroundWrapper>
-        <BackgroundImage bgimage={images[currentImage]} isActive={!isTransitioning} />
-        <BackgroundImage bgimage={images[nextImage]} isActive={isTransitioning} />
-        <IntroDiv>
-          {isModalOpen && <LoginModal onClose={closeModal} />}
-        </IntroDiv>
-        <IntroImg onClick={openModal} />
-      </BackgroundWrapper>
-    );
+
+  const navigate = useNavigate()
+
+  const [currentImage, setCurrentImage] = useState(0);
+  const [nextImage, setNextImage] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleLogin=()=>{
+    navigate('/login');
+    
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNextImage((prevImage) => (prevImage + 1) % images.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+        setIsTransitioning(false);
+      }, 1500); // 이미지 전환 시간을 고려하여 타이머 설정
+    }, 5000); // 5초마다 이미지 전환
+
+    return () => clearInterval(interval);
+  }, [currentImage]);
+
+
+
+
+  return (
+    <BackgroundWrapper>
+      <BackgroundImage bgimage={images[currentImage]} isActive={!isTransitioning} />
+      <BackgroundImage bgimage={images[nextImage]} isActive={isTransitioning} />
+      <IntroDiv>
+        
+      </IntroDiv>
+      <IntroImg onClick={handleLogin} />
+    </BackgroundWrapper>
+  );
+}
