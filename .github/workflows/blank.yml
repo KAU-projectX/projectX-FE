@@ -55,3 +55,20 @@ jobs:
           if [ -z "${{ secrets.AWS_STAGING_BUCKET_NAME }}" ]; then echo "AWS_STAGING_BUCKET_NAME is not set"; exit 1; fi
           if [ -z "${{ secrets.AWS_DEFAULT_REGION }}" ]; then echo "AWS_DEFAULT_REGION is not set"; exit 1; fi
           echo "All secrets are accessible."
+
+      # 무효화 파일 설정
+      - name: Get list of changed files
+        id: changes
+        run: |
+          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          CHANGED_FILES=$(echo "${{ steps.changes.outputs.files }}" | tr ' ' '\n' | awk '{print "/" $1}' | tr '\n' ' ')
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths $CHANGED_FILES
+
+      # 여기서 .env 환경 세팅
+      # - name: .env setting
+      #   run: |
+      #     echo "REACT_APP_SERVER_IP=${{ secrets.REACT_APP_SERVER_IP }}" >> .env
+      #     echo "REACT_APP_EXAMPLE=${{ secrets.REACT_APP_EXAMPLE }}" >> .env

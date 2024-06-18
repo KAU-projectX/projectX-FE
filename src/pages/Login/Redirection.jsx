@@ -1,22 +1,25 @@
-import axios from 'axios';
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Redirection() {
+  console.log('test하고 지우기 | 리다이랙션 들어옴 ')
   const navigate = useNavigate();
-  const code = window.location.search;
+  const location = useLocation();
 
-  useEffect(()=>{
-    console.log(process.env.REACT_APP_URL);
-    axios.post(`${process.env.REACT_APP_URL}kakaoLogin${code}`).then((r) => {
-      console.log(r.data);
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const accessToken = params.get('accessToken');
 
-      localStorage.setItem('name', r.data.user_name); // 일단 이름만 저장했다.
-      
-      navigate('/loginSuccess');
-    });
-  },);
-  
+    if (accessToken) {
+      // 액세스 토큰을 로컬 스토리지에 저장
+      localStorage.setItem('kakaoAccessToken', accessToken);
+      // 메인 페이지로 리다이렉트
+      navigate('/main');
+    } else {
+      // 에러 처리
+      console.error('Access token not found');
+    }
+  }, [location, navigate]);
 
 
   return (
