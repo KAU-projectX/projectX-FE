@@ -7,14 +7,17 @@ export default function Redirection() {
   const location = useLocation();
 
   useEffect(() => {
+    console.log('test하고 지우기 | useEffect !! ')
     const params = new URLSearchParams(location.search);
     const accessToken = params.get('accessToken');
 
     if (accessToken) {
       // 액세스 토큰을 로컬 스토리지에 저장
       localStorage.setItem('kakaoAccessToken', accessToken);
-      // 메인 페이지로 리다이렉트
+
+      alert('로그인 성공했어요!');
       navigate('/main');
+
     } else {
       // 에러 처리
       console.error('Access token not found');
