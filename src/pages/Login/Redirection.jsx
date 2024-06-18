@@ -15,7 +15,7 @@ export default function Redirection() {
       
       navigate('/loginSuccess');
     });
-  },[]);
+  },);
   
 
 
