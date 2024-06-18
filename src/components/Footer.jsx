@@ -22,7 +22,7 @@ export default function Footer() {
 
 
 
-    if (window.location.pathname === '/') 
+    if (window.location.pathname === '/' || window.location.pathname === '/login') 
         return null; 
     return (
     <div className ='footer-wrap'>

@@ -23,6 +23,6 @@ export default function Redirection() {
 
 
   return (
-    <div>로그인 중입니다.</div>
+    <div>로그인 중입니다..</div>
   )
 }
