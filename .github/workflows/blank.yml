@@ -57,16 +57,16 @@ jobs:
           echo "All secrets are accessible."
 
       # 무효화 파일 설정
-      - name: Get list of changed files
-        id: changes
-        run: |
-          echo "::set-output name=files::$(git diff --name-only $(git log --pretty=format:%H | tail -n 2 | head -n 1) HEAD)"
+      # - name: Get list of changed files
+      #   id: changes
+      #   run: |
+      #     echo "::set-output name=files::$(git diff --name-only $(git log --pretty=format:%H | tail -n 2 | head -n 1) HEAD)"
 
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-          --path "/*"
+      # - name: Invalidate CloudFront cache
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #     --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+      #     --path "/*"
 
       # 여기서 .env 환경 세팅
       # - name: .env setting
