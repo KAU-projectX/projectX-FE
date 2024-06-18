@@ -62,11 +62,11 @@ jobs:
       #   run: |
       #     echo "::set-output name=files::$(git diff --name-only $(git log --pretty=format:%H | tail -n 2 | head -n 1) HEAD)"
 
-      - name: Invalidate CloudFront Cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --path "/*"
+      # - name: Invalidate CloudFront Cache
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #       --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+      #       --path "/*"
 
       # 여기서 .env 환경 세팅
       # - name: .env setting
