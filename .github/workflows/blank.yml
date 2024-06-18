@@ -64,9 +64,9 @@ jobs:
 
       - name: Invalidate CloudFront cache
         run: |
-          CHANGED_FILES=$(echo "${{ steps.changes.outputs.files }}")
-          INVALIDATION_BATCH='{"Paths":{"Quantity":1,"Items":['$(echo $CHANGED_FILES | jq -R -s -c 'split("\n")[:-1] | map({Path:.})')']},"CallerReference":"github-actions-'$(date +%s)'"}'
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --invalidation-batch "$INVALIDATION_BATCH"
+          aws cloudfront create-invalidation \
+          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+          --path "/*"
 
       # 여기서 .env 환경 세팅
       # - name: .env setting
