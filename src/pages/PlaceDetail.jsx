@@ -6,14 +6,51 @@ import KakaoMap from '../components/KakaoMap';
 import kakaoLogo from '../assets/img/kakaomap_basic.png'
 import SuggestedPlaces from '../components/\bSuggestedPlaces';
 import styled from 'styled-components';
+import altImg from '../assets/img/PlacesAlt.svg';
 
+
+const LargeImg = styled.div`
+  flex: 1;
+  margin-right: 5px;
+  min-width : 230px;
+  max-width : 230px;
+  max-height : 210px;
+  overflow : hidden;
+
+  img{
+    width : 100%;
+    height : 100%;
+    overflow : hidden;
+    margin : 1px;
+  }
+`
+
+const SmallImg = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width : 121px;
+  position: relative;
+
+
+  img{
+    max-width: 100%;
+    min-height: 49%;
+    max-height : 49%;
+    object-fit: cover;
+    overflow: hidden;
+
+  }
+`
 
 const Wrapper = styled.div `
-display : flex;
-overflow-x : scroll;
-overflow-y : hidden;
-min-height:100%;
-min-width: 100%;
+  display : flex;
+  overflow-x : scroll;
+  overflow-y : hidden;
+  min-height:100%;
+  min-width: 100%;
+  margin-bottom : 60px;
+
 `
 
 
@@ -97,24 +134,43 @@ export default function PlaceDetail({ updateClickedName }) {
     },
   ]
 
-  
 
+
+  const images = state?.img_src ?? [];
+  const defaultImg = altImg;
+  const displayImg = images.slice(0, 3);
+  console.log('test하고 지우기 |images:  ', images);
+  const imgText = images.length >= 3 
+  ? "더보기" 
+  : (
+    <>
+      리뷰를 작성해
+      <br />
+      사진을 추가하세요!
+    </>
+  );
+  
 
 
 
   return (
     <div className='place-detail-wrapper'>
-      <div className = "place-img-wrapper">
-      {state.img_src.map((src, index) => (
-          <img key={index} src={src} style={{ maxWidth: "100%", height: "197px" }} alt={`${index}`}/>
-        ))}
+      <div className = "detail-img-wrapper">
+        <LargeImg>
+          <img src={displayImg[0] || defaultImg} alt='1st img' />
+        </LargeImg>
+        <SmallImg>
+            <img src={displayImg[1] || defaultImg} alt='small' />
+            <img  className = "blur-img-wrapper" src={displayImg[2] || defaultImg} alt='small' />
+            <p className = "blur-image-text" style={{ fontSize: images.length > 2 ? "16px" : "10px" }}>{imgText}</p>
+        </SmallImg>
       </div>
 
       <div className ="place-info-wrapper">
         <div className = "place-first-line">
           <div className = "place-tel-wrapper"> 
             <FontAwesomeIcon icon ="fa-phone" style={{color:"#F8D3BF"}} size = "lg"  />
-            <a href={`tel:${state.tel}`}> {state.tel} </a>
+            <a href={`tel:${state.phone}`}> {state.phone} </a>
           </div>
           <div className = "place-saved-wrpper" style={{display:"flex"}}> 
               <div className = "detail-icon-wrapper">
@@ -164,8 +220,8 @@ export default function PlaceDetail({ updateClickedName }) {
         </div>
 
 
-        <hr/>
-        <div className='work-place-wrapper' style={{marginBottom : "20px"}}>
+        <hr style={{margin : "40px 0 "}}/>
+        <div className='work-place-wrapper'>
           <Text>이 지역의 다른 WORK 정보를 확인해보세요 ! </Text>
           <Title color ='#FF9559'> WORK </Title >
 

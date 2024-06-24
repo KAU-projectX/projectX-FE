@@ -7,3 +7,9 @@ body, html {
 }
 
 /* intro */
+
+/* My Page  */
+.mypage-page-wrapper{
+    padding : 10px;
+    margin-bottom: 60px;     
+}

@@ -24,7 +24,8 @@ const handleLogout = async ()=> {
   try{
     const res = await axios({
       method : "POST",
-      url : `http://13.124.42.147/v1/member/${accessToken}/logout`,
+      url : `http://43.200.247.44/v1/member/token/logout`,
+      headers : {'Authorization' : accessToken}
     })
     console.log('test하고 지우기 | res: ', res); 
 
@@ -40,7 +41,7 @@ export default function Mypage() {
 
 
   return (
-    <div>
+    <div className='mypage-page-wrapper'>
       안녕하세요 ! {}님 ,
       <Logout onClick={handleLogout}>
         로그아웃 

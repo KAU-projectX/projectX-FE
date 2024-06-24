@@ -21,7 +21,7 @@ export default function Places({ place }) {
           <div style={{fontWeight:"bold", fontSize:"20px", padding:"10px 0px 5px 0px"}}>{place.name}</div>
           <div className="address" >{place.address}</div>
           <div className = "telAndTime">
-            {place.tel}
+            {place.phone}
             {place.open_time && " | " + place.open_time + "에 영업시작"}
           </div> 
 

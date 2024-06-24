@@ -29,8 +29,10 @@
 .places-img-wrapper img{
 
     max-width: 100px;
+    min-width : 100px;
     max-height: 80px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .places-text-wrapper{
@@ -39,17 +41,46 @@
 }
 
 
+/* place-detail css */
+.place-detail-wrapper{
+    padding: 0px 10px;
+    margin-bottom: 70px;
+}
 
-/* login css */
-.login-page-wrapper{
-
+.detail-img-wrapper{
+    display: flex;
+    justify-content: center;
+    height: 210px;
+    width : 100%;
 }
 
 
-/* place-detail css */
-.place-detail-wrapper{
-    padding: 15px 10px;
-    margin-bottom: 50px;
+.blur-img-wrapper{
+    filter: opacity(0.3) drop-shadow(0 0 0 #000);
+}
+
+.blur-image-text{
+    width : 100%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    color : black;
+    text-align: center;
+}
+
+
+.add-review{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    border: 1px dashed #ccc;
 }
 
 .place-first-line{
