@@ -17,8 +17,16 @@ export default function KakaoMap({Lat,Lng}) {
               center: new window.kakao.maps.LatLng(Lat, Lng),
               level: 3
             };
-            new window.kakao.maps.Map(container, options);
+            const map = new window.kakao.maps.Map(container, options);
+
+            const markerPosition = new window.kakao.maps.LatLng(Lat, Lng);
+            const marker = new window.kakao.maps.Marker({
+              position: markerPosition
+            });
+            marker.setMap(map);
+            
           });
+          
         };
       }, [Lat,Lng]);
 

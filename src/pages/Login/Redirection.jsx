@@ -13,7 +13,7 @@ const fnUserInfoCheck = async (kakaoId, nickname) => {
 
     // Handle the response from your backend
     if (response.data.success) {
-      alert('test하고 지우기 | 사용자 : , ', response.data.user);
+
       // You can use the navigate hook if needed
     } else {
       console.error('User info check failed:', response.data.message);

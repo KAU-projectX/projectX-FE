@@ -27,7 +27,7 @@ const handleLogout = async ()=> {
       url : `http://43.200.247.44/v1/member/token/logout`,
       headers : {'Authorization' : accessToken}
     })
-    console.log('test하고 지우기 | res: ', res); 
+    console.log('test하고 지우기 | res : ', res);
 
     alert('로그아웃 되었습니다.');
 
@@ -35,7 +35,10 @@ const handleLogout = async ()=> {
     console.log("error in Logout : ", e);
 
   }
+
+  
 }
+
 
 export default function Mypage() {
 

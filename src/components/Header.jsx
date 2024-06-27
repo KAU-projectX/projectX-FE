@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./FontAwesome";
 import '../styles/layout.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { PlaceContext } from '../contexts/clickedPlaceContexts';
 
 
 const PlaceName = styled.div`
@@ -11,8 +12,10 @@ const PlaceName = styled.div`
   font-weight : 700;
 `
 
-export default function Header({ clickedName }) {
+export default function Header({ clickedPlaceId }) {
+  const { placeName } = useContext(PlaceContext); // Context 사용
   const location = useLocation();
+
 
   const renderComponent = () => {
     // const isMainPath = /^\/main(\/.*)?$/.test(location.pathname);
@@ -93,8 +96,6 @@ export default function Header({ clickedName }) {
         </>
       )
     }else if(isMainDetailPath) {
-      console.log('test하고 지우기 | 상세 페이지 입장 ~ ')
-      console.log('test하고 지우기 | :',location.pathname)
       return (
         <>
             <Link to="/main" className="main-link">
@@ -105,7 +106,7 @@ export default function Header({ clickedName }) {
                 style={{marginRight : "10px"}}
               /></Link>
 
-              <PlaceName>{clickedName &&  <div>{clickedName}</div>}</PlaceName>
+              <PlaceName>{placeName && <div>{placeName}</div>}</PlaceName>
 
               <div className="search-icon-wrapper">
                 <FontAwesomeIcon

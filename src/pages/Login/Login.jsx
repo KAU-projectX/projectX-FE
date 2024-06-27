@@ -48,12 +48,10 @@ const LoginModal = () => {
   const REST_API_KEY= process.env.REACT_APP_REST_API_KEY
   const REDIRECT_URL = decodeURIComponent(process.env.REACT_APP_REDIRECT_URL) //Redirect URI
 
-  console.log('test하고 지우기 | REDIRECT_URL : ',REDIRECT_URL)
   // oauth 요청 URL
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`
       
   const handleKakaoLoginClick = () =>{
-    console.log('test하고 지우기 | loginClick')
     window.location.href = kakaoURL
   }
 

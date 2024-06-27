@@ -7,36 +7,52 @@ import '../styles/calendar.css'
 
 const events = [
   {
-    title : "일~?",
+    title : "Work 1  ",
     start : "2024-05-30",
     type: "work"
   },
   {
-    title : "일12~23?",
+    title : "Work 2 ",
     start : "2024-05-31",
     type: "work"
   },
   {
-    title : "여행",
+    title : "Travel 1 ",
     start : "2024-05-28",
     type: "travel",
   },
   {
-    title : "work2.",
+    title : "Work 3 ",
     start : "2024-05-28",
     type: "work",
   },
 
   {
-    title : "일과여행의향연..",
-    start : "2024-05-28",
+    title : "일 일정 테스트 ",
+    start : "2024-06-28",
     type: "work",
   },
   {
-    title : "여행",
-    start : "2024-05-25",
+    title : "여행 일정 테스트 ",
+    start : "2024-06-25",
     type: "travel",
-  }
+  },
+  {
+    title : "테스트입니다(work) ",
+    start : "2024-06-05",
+    type: "work",
+  },
+  {
+    title : "일을 하자 ",
+    start : "2024-06-13",
+    type: "work",
+  },
+  {
+    title : "놀러가자 ",
+    start : "2024-06-13",
+    type: "travel",
+  },
+
 ]; 
 
 
