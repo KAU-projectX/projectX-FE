@@ -116,3 +116,43 @@
     font-family: Inter;
 
 }
+
+
+.input-wrapper{
+    margin-top: 3px;
+    width : 100%;
+    height: 30px;
+    display:flex;
+    justify-content: space-between;
+
+}
+/* 새로운 이밴트 입력 시,  */
+.new-event-input{
+
+    width : 60%;
+
+}
+
+.save-btn{
+    border: 1px solid #cdcdcd;
+    background-color: #fff;
+    border-radius: 5px;
+    width:15%;
+}
+
+.cancel-btn{
+    border: 1px solid #cdcdcd;
+    background-color: #fff;
+    border-radius: 5px;
+    width:15%;
+}
+
+.selected-date-text{
+    padding : 10px 0;
+    font-weight:700;
+    
+}
+
+.fc-daygrid-day.selected-date {
+    background-color: #ffede3; /* Highlight color of your choice */
+  }

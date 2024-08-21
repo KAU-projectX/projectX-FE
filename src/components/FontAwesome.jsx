@@ -21,7 +21,10 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+
 
 
 library.add(faHouse,faLaptop,faSuitcase,faComments,faCalendar,faUser,faMagnifyingGlass,faFile,faMessage,faShareNodes,faBookmarkSolid,faBookmarkRegular);
-library.add(faSuitcaseRolling,faAngleRight,faAngleLeft,faPhone,faLocationDot,faCopy,faArrowLeft);
+library.add(faSuitcaseRolling,faAngleRight,faAngleLeft,faPhone,faLocationDot,faCopy,faArrowLeft,faThumbsUp,faThumbsDown);

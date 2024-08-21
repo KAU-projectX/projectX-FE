@@ -10,7 +10,7 @@ import altImg from '../assets/img/PlacesAlt.svg';
 import largeAltImg from '../assets/img/LargeAlt.png'
 import axios from 'axios';
 import { PlaceContext } from '../contexts/clickedPlaceContexts';
-
+// '../assets/img/travelAlt.svg'
 
 const LargeImg = styled.div`
   flex: 1;
@@ -83,7 +83,7 @@ export default function PlaceDetail({ updateClickedPlace }) {
     let API_URL = ""
 
     if(location.pathname.startsWith('/main')) {
-      API_URL = 'http://43.200.247.44/v1/work/'
+      API_URL = 'http://43.200.247.44/v1/works/'
     }else if(location.pathname.startsWith('/travel')) {
       API_URL = 'http://43.200.247.44/v1/travel/'
     }
@@ -142,25 +142,28 @@ export default function PlaceDetail({ updateClickedPlace }) {
       name: "카페봄봄 혁신도시점",
       address: "제주특별자치도 서귀포시 강정동  208-5" ,
       phone: "064-738-180",
-      imgSrc: "",
+      imageUrl: '',
     },
   ]
 
   const suggestedTravel = [
     {
-      name: "개쩌는 노는곳",
-      address: "제주 제주시 조천읍 신북로 453 도토관",
-      imgSrc: [ "https://mblogthumb-phinf.pstatic.net/MjAyMzAzMTdfMjM3/MDAxNjc5MDQyMjI5ODYy.6TU04oH0AC3eD_8gFoqcWQdNKxbse03Mm7jgHwsB7ucg.581kNlJScHA2fDFN2FLnwjGf1vF41zYgueARpQgad_Ug.JPEG.hyeyoung217/20230313%EF%BC%BF155851.jpg?type=w800"],
+      id : 0,
+      name: "협재해변",
+      address: "제주특별자치도 제주시 한림읍 한림로 329-10",
+      imageUrl: "https://lh3.googleusercontent.com/p/AF1QipNFmem5tBp7EDwMWE2eUNzWkwbvMUnsuenKD7Na=s294-w294-h220-k-no"
     },
     {
-      name: "개처지리는 놀기 좋은 곳 곳 거ㅗㅅ",
-      address: "제주 제주시 구좌읍 고양이로 453" ,
-      imgSrc: [ "https://mblogthumb-phinf.pstatic.net/MjAyMzAzMTdfMjM3/MDAxNjc5MDQyMjI5ODYy.6TU04oH0AC3eD_8gFoqcWQdNKxbse03Mm7jgHwsB7ucg.581kNlJScHA2fDFN2FLnwjGf1vF41zYgueARpQgad_Ug.JPEG.hyeyoung217/20230313%EF%BC%BF155851.jpg?type=w800"],
+      id : 0,
+      name: "스누피 가든",
+      address: "제주특별자치도 제주시 특별자치도 구좌읍 금백조로 930" ,
+      imageUrl: "https://lh3.googleusercontent.com/p/AF1QipNQSLyhKLdtHBYvomfMK9tWy2pjVWEOZkzDKc_c=s294-w294-h220-k-no",
     },
     {
-      name: "개처지리는 MT장소",
-      address: "제주 제주시 구좌읍 고양이로 453" ,
-      imgSrc: [ "https://mblogthumb-phinf.pstatic.net/MjAyMzAzMTdfMjM3/MDAxNjc5MDQyMjI5ODYy.6TU04oH0AC3eD_8gFoqcWQdNKxbse03Mm7jgHwsB7ucg.581kNlJScHA2fDFN2FLnwjGf1vF41zYgueARpQgad_Ug.JPEG.hyeyoung217/20230313%EF%BC%BF155851.jpg?type=w800"],
+      id : 0,
+      name: "제주허브동산",
+      address: "제주특별자치도 서귀포시 표선면 돈오름로 170" ,
+      imageUrl: "",
     },
   ]
 
@@ -178,7 +181,7 @@ export default function PlaceDetail({ updateClickedPlace }) {
   const url = detailPlace.url ? detailPlace.url : "" 
 
   // 사진 추출 
-  const images = detailPlace?.imgSrc ?? [];
+  const images = detailPlace?.imageUrl ?? [];
   const defaultImg = altImg;
   const displayImg = images.slice(0, 3);
   const imgText = images.length >= 3 
@@ -281,7 +284,7 @@ export default function PlaceDetail({ updateClickedPlace }) {
           <Title color = "#8BCDFB"> TRAVEL </Title >
           <Wrapper >
             {suggestedTravel.map((place, index) => (
-            <SuggestedPlaces key={index} place={place}/>
+            <SuggestedPlaces key={index} place={place} />
           ))}
           </Wrapper>
         </div>

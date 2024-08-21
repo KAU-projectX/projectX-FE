@@ -25,7 +25,9 @@ export default function Header({ clickedPlaceId }) {
     const isCalendarPath = /^\/calendar(\/.*)?$/.test(location.pathname);
     const isMypagePath = /^\/mypage(\/.*)?$/.test(location.pathname);
     const isLoginPath = /^\/login(\/.*)?$/.test(location.pathname);
+    const isReviewPath = /^\/review(\/.*)?$/.test(location.pathname);
     const isIntroPath = /^\/(\/.*)?$/.test(location.pathname);
+    
     
     
 
@@ -118,6 +120,22 @@ export default function Header({ clickedPlaceId }) {
     }else if(isLoginPath || isIntroPath){
       return (
         <></>
+      )
+    }else if(isReviewPath){
+      return (
+        <>
+        <Link to="/main" className="main-link">
+        <FontAwesomeIcon
+          icon="arrow-left"
+          size="lg"
+          className=""
+          style={{marginRight : "10px"}}
+        />리뷰작성
+        </Link>
+
+        <PlaceName>{ placeName && <div>{placeName}</div>}</PlaceName>
+        </>
+
       )
     }
     else{

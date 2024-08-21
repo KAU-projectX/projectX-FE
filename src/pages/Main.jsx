@@ -22,7 +22,7 @@ export default function Main ({ updateClickedPlace }) {
 
       // 1. 북카페 
       try {
-        const bookCafesResponse = await axios.get(`http://43.200.247.44/v1/work/?page=0&cafeType=1`, {
+        const bookCafesResponse = await axios.get(`http://43.200.247.44/v1/works/?page=0&cafeType=BOOK`, {
         });
         setBookCafes(bookCafesResponse.data.data);
       } catch (error) {
@@ -31,7 +31,7 @@ export default function Main ({ updateClickedPlace }) {
 
       // 2. 개인 카페 
       try {
-        const personalCafesResponse = await axios.get(`http://43.200.247.44/v1/work/?page=0&cafeType=2`, {
+        const personalCafesResponse = await axios.get(`http://43.200.247.44/v1/works/?page=0&cafeType=PERSONAL`, {
         });
         setCafes(personalCafesResponse.data.data);
       } catch (error) {
@@ -40,7 +40,7 @@ export default function Main ({ updateClickedPlace }) {
 
       //3. 프랜차이즈 
       try {
-        const franchiseResponse = await axios.get(`http://43.200.247.44/v1/work/?page=0&cafeType=3`, {
+        const franchiseResponse = await axios.get(`http://43.200.247.44/v1/works/?page=0&cafeType=FRANCHISE`, {
         });
         setFranchise(franchiseResponse.data.data);
       } catch (error) {
@@ -49,7 +49,7 @@ export default function Main ({ updateClickedPlace }) {
 
       // 4. 도서관 
       try {
-        const librariesResponse = await axios.get(`http://43.200.247.44/v1/work/?page=0&cafeType=4`, {
+        const librariesResponse = await axios.get(`http://43.200.247.44/v1/works/?page=0&cafeType=LIBRARY`, {
         });
         setLibraries(librariesResponse.data.data);
       } catch (error) {

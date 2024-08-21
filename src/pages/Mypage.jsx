@@ -4,9 +4,13 @@ import styled from 'styled-components'
 
 
 const Logout = styled.div`
+  position : absolute;
+  bottom: 60px;
+  maring-bottom : 50px;
   padding : 10px;
   border : 1px solid #000;
-  width : 50%; 
+  max-width : 100%; 
+  min-width : 90%;
   border-radius : 10px;
   justify-contents : center;
   text-align : center;
@@ -45,7 +49,13 @@ export default function Mypage() {
 
   return (
     <div className='mypage-page-wrapper'>
-      안녕하세요 ! {}님 ,
+      안녕하세요 !
+
+      <div style={{marginTop:"30px"}}>
+      더 많은 서비스를 이용하시려면
+      <br/>
+      로그인을 해주세요 
+      </div>
       <Logout onClick={handleLogout}>
         로그아웃 
       </Logout>

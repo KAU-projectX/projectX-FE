@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import sugAlt from '../assets/img/sugAlt.svg'
+// import travelAlt from '../assets/img/travelAlt.svg'
 
 
 const Box = styled.div `

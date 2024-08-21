@@ -24,6 +24,16 @@ export default function Footer() {
 
     if (window.location.pathname === '/' || window.location.pathname === '/login') 
         return null; 
+    else if (window.location.pathname === '/review')
+        return (
+            <>
+            <div className = "review-upload-footer">
+                <div className ="review-upload-button">
+                    리뷰 작성 완료
+                </div >
+            </div>
+            </>
+        )
     return (
     <div className ='footer-wrap'>
         <Link to="/main" className="nav-link" onClick={() => setActiveNav(1)}> 

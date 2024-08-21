@@ -14,6 +14,7 @@ import Intro from "./pages/Intro";
 import Redirection from "./pages/Login/Redirection";
 import LoginSuccess from "./pages/Login/LoginSuccess";
 import { PlaceProvider } from "./contexts/clickedPlaceContexts";
+import Review from "./pages/Review";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path = "/main/:id" element = {<PlaceDetail updateClickedPlace={updateClickedPlace} />} />
         <Route path = "/travel/:id" element = {<PlaceDetail updateClickedPlace={updateClickedPlace} />}/>
         <Route path ="/mypage" element = {<Mypage/>}/>
+        <Route path ="/review" element = {<Review/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

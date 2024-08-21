@@ -14,8 +14,22 @@ const attractionPlace = [
     id : 2,
     name: "신양섭지해수욕장",
     address: "제주 서귀포시 성산읍 섭지코지로 88",
-    imgSrc: "https://api.cdn.visitjeju.net/photomng/imgpath/201908/08/9d19a7d3-97a8-4999-b849-123e46fc88bc.jpg"
+    imgSrc: ""
   },
+  {
+    id : 3, 
+    name: "스누피가든",
+    address: "제주특별자치도 제주시 특별자치도 구좌읍 금백조로 930",
+    imgSrc: "https://lh3.googleusercontent.com/p/AF1QipNQSLyhKLdtHBYvomfMK9tWy2pjVWEOZkzDKc_c=s294-w294-h220-k-no",
+
+  },
+  {
+    id : 4,
+    name: "협재해변",
+    address: "제주특별자치도 제주시 한림읍 한림로 329-10",
+    imageUrl: "https://lh3.googleusercontent.com/p/AF1QipNFmem5tBp7EDwMWE2eUNzWkwbvMUnsuenKD7Na=s294-w294-h220-k-no"
+  },
+
 
 
 ]
