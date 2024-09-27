@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../components/FontAwesome'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import orange from '../assets/img/orange.png'
 import gray from '../assets/img/gray.png'
@@ -90,50 +90,63 @@ const SelectStar = styled.div`
 
 const WriteSection = styled.div`
 
-.writeUp{
-    display:flex;
-    justify-content:space-between;
-    margin-top : 20px;
-
-}
-h2{
-    font-size: 18px;
-}
-
-.isfifty-p.selected{
-    color : #FF9559;
-}
-.conditions{
-
-}
-
-
-.reviewInput {
-    width: 100%;
-    display:flex;
-    flex-direction : column;
-    justify-content: center; 
-    align-items: center; /* Center vertically */
-    margin-top: 10px; /* Add margin for spacing */
-
-    textarea {
-        margin-top : 10px;
-        min-width: 100%;
-        height: 150px;
+    .writeUp{
+        display:flex;
+        justify-content:space-between;
+        margin-top : 20px;
 
     }
+    h2{
+        font-size: 18px;
+    }
 
-    p {
-        text-align : right;
-        translate(0,-50%);
+    .isfifty-p.selected{
         color : #FF9559;
-        font-size : 10px;
-        margin-left : 80%;
-
     }
-}
+    .conditions{
 
-`
+    }   
+
+    .reviewInput {
+        width: 100%;
+        display:flex;
+        flex-direction : column;
+        justify-content: center; 
+        align-items: center; /* Center vertically */
+        margin-top: 10px; /* Add margin for spacing */
+
+        textarea {
+            margin-top : 10px;
+            min-width: 100%;
+            height: 150px;
+
+        }
+
+        p {
+            text-align : right;
+            translate(0,-50%);
+            color : #FF9559;
+            font-size : 10px;
+            margin-left : 80%;
+
+        }
+    }
+`;
+
+const ImageUploadDiv = styled.div`
+
+    margin-top : 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  // 3개의 칼럼
+    grid-gap : 0px;
+    max-width : 100%;
+
+    .img {
+        justify-self: center; /* 이미지 개별 중앙 정렬 */
+    }
+`;
+
+
 
 
 
@@ -142,6 +155,8 @@ export default function Review() {
     const [isGoodSelected, setIsGoodSelected] = useState(false);
     const [isBadSelected, setIsBadSelected] = useState(false);
     const [reviewText, setReviewText] = useState('');
+    const fileInputRef = useRef(null);
+    const [imagePreviews, setImagePreviews] = useState([]); // 이미지 미리보기 배열
 
 
 
@@ -155,13 +170,32 @@ export default function Review() {
 
     const imageUploadClick = () =>{
         console.log('test하고 지우기 : 이미지업로드 버튼 클릭함')
+        fileInputRef.current.click(); // 숨겨진 input 요소 클릭
     }
+
+    // 파일 선택 후 처리하는 핸들러
+    // 이미지 업로드 및 미리보기 이미지 설정 
+    const handleFileChange = (event) => {
+        const files = event.target.files; // 여러 파일 선택 가능
+        const newPreviews = [];
+
+        for (let i = 0; i < files.length; i++) {
+            if (imagePreviews.length + newPreviews.length < 5) { // 최대 5개의 이미지만 허용
+                const imageUrl = URL.createObjectURL(files[i]);
+                newPreviews.push(imageUrl);
+            } else {
+                alert("최대 5장까지 업로드할 수 있습니다.");
+                break;
+            }
+        }
+
+        setImagePreviews([...imagePreviews, ...newPreviews]); // 기존 이미지와 새 이미지를 합침
+    };
 
     const goodBtnClicked = () =>{
         setIsGoodSelected(true)
         setIsBadSelected(false)
         console.log('test 하고 지우기 | goodBtn클릭함 ')
-        
     }
 
     const badBtnClicked = () =>{
@@ -174,12 +208,8 @@ export default function Review() {
         setReviewText(event.target.value);
     }
 
-
-
-
-
     return (
-        <div className='review-page-wrapper' style={{display:"flex", flexDirection:"column", alignItems:"center", margin:"0px"}}>
+        <div className='review-page-wrapper' style={{display:"flex", flexDirection:"column", justifyContent :"center",alignItems:"center", margin:"0px"}}>
             <SelectPlace>
                 <select>
                 <option value="" selected disabled hidden> 여행지를 선택해주세요</option>
@@ -218,7 +248,7 @@ export default function Review() {
             </SelectStar>
 
 
-            <WriteSection>
+            <WriteSection >
                 <div className='writeUp'>
 
                         <h2 >후기 작성</h2>
@@ -229,13 +259,55 @@ export default function Review() {
                                 <p style={{fontSize:"10px", marginLeft:"10px"}}>✓ 사진</p>
                             </div>
                         </div>
-
                 </div>
 
 
-                <div>
-                    <img src = {AttachPhoto} alt = "사진을 첨부하세요" onClick={imageUploadClick}/>
-                </div>
+                <ImageUploadDiv>
+                    <img 
+                        src={AttachPhoto} 
+                        alt="사진을 첨부하세요" 
+                        onClick={imageUploadClick}
+                        style={{cursor: "pointer"}}
+                    />
+
+                    {imagePreviews.map((preview, index) => (
+                        <div key={index} style={{ position: 'relative', display: 'inline-block' }}>
+                            <img
+                                src={preview}
+                                alt={`미리보기 ${index + 1}`}
+                                style={{ width: '100px', height: '100px', objectFit: 'cover', border: '1px solid #ccc', marginRight: '5px' }}
+                            />
+                            <button
+                                onClick={() => {
+                                    const newPreviews = imagePreviews.filter((_, i) => i !== index);
+                                    setImagePreviews(newPreviews);
+                                }}
+                                style={{
+                                    border :'none',
+                                    position: 'absolute',
+                                    top: '0',
+                                    right: '0',
+                                    background: 'none',
+                                    color: '#fff',
+                                    cursor: 'pointer',
+                                    fontSize: '16px',
+                                }}
+                            >
+                                ✖  
+                            </button>
+                        </div>
+                    ))}
+
+                    <input
+                        type="file"
+                        ref={fileInputRef}
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }} 
+                        accept="image/*"  
+                        multiple
+                    />
+                </ImageUploadDiv>
+
 
                 <div className = "reviewInput">
                     <img src = {ReviewText} alt = "안내문구"/>

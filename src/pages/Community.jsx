@@ -16,7 +16,8 @@ export default function Community() {
   return (
     <div style={{height : "100%"}}>
       <CommunityWrapper>
-        열심히 개발 중 .. 🛠️ 
+        <div className = "hot-topic-wrapper">
+        </div>
       </CommunityWrapper>
     </div>
     

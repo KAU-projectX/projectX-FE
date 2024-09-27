@@ -121,24 +121,44 @@
 .input-wrapper{
     margin-top: 3px;
     width : 100%;
-    height: 30px;
+    min-height: 37px;
     display:flex;
     justify-content: space-between;
 
+
 }
 /* 새로운 이밴트 입력 시,  */
-.new-event-input{
-
-    width : 60%;
-
+.new-workevent-input{
+    width : 83%;
+    border-radius: 20px;
+    border: none;
+    background-color: #FF9559;
+    
 }
-
-.save-btn{
-    border: 1px solid #cdcdcd;
+.new-workevent-input:focus{
+    outline:2px solid #FF9559;
     background-color: #fff;
-    border-radius: 5px;
-    width:15%;
+    max-height: 35px;
+    min-height: 35px;
 }
+
+.new-travelevent-input{
+    width : 83%;
+    border-radius: 20px;
+    border:none;
+    background-color: #8BCDFB;
+    
+}
+.new-travelevent-input:focus{
+    outline: 2px solid #8BCDFB;
+    background-color: #fff;
+    max-height: 35px;
+    min-height: 35px;
+
+}
+
+
+
 
 .cancel-btn{
     border: 1px solid #cdcdcd;
@@ -156,3 +176,152 @@
 .fc-daygrid-day.selected-date {
     background-color: #ffede3; /* Highlight color of your choice */
   }
+
+
+
+
+
+
+
+
+
+
+
+/* 캘린더 모달창 띄우기 */
+.modal-overlay-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 모달 백그라운드 */
+    z-index: 1000; /* z-index를 높게 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+  
+/* 모달 부모 요소 */
+.modal-wrapper {
+    width: 300px;
+    height: 384px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1001; /* 모달 자체도 높게 설정 */
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 정렬 */
+    justify-content: space-between; /* 상단과 하단을 구분 */
+    box-sizing: border-box; /* 패딩 포함 계산 */
+  }
+  
+  /* 날짜를 모달의 맨 위에 위치 */
+  .modal-date-wrapper {
+    margin-bottom: 10px; /* 이벤트와의 간격 */
+  }
+  
+  /* 이벤트 내용도 위에서부터 나열 */
+  .modal-event-wrapper {
+    flex-grow: 1; /* 중간 부분을 유동적으로 차지 */
+    overflow-y: auto; /* 내용이 많으면 스크롤 */
+    margin-bottom: 10px; /* 계획 입력과의 간격 */
+  }
+  
+  /* 하단 계획 input 고정 */
+  .modal-plan-wrapper {
+    display: flex;
+    justify-content: center; /* input과 버튼을 가운데로 정렬 */
+    padding: 10px 0;
+  }
+
+  .todo-input-wrapper {
+    display: flex;
+    justify-content: space-between; /* input과 버튼 사이에 공간 배분 */
+    align-items: center; /* input과 버튼이 수직으로 중앙에 정렬되도록 */
+    width: 100%; /* 부모 영역을 가득 채우기 */
+  }
+
+
+  
+  /* 기타 스타일 */
+  .modal-event-title {
+    padding: 3px 0;
+  }
+  
+  .modal-plan-box {
+    font-size: 16px;
+  }
+  
+  .modal-close-button {
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  
+
+
+
+
+
+  /* 저장 버튼 커스텀*/
+  .save-work-btn{
+    border: none;
+    background-color: #FF9559;
+    border-radius: 5px;
+  }
+
+
+  .save-travel-btn{
+    border: none;
+    background-color: #8BCDFB;
+    border-radius: 5px;
+  }
+
+
+
+
+  /* work, travel 타입에 따라 바뀌는 btn css */
+  .work-type-btn{
+    background-color: #fff;
+    border-radius: 100px;
+    border: 2px solid #FF9559;
+    font-size: 20px;
+    font-weight: 800;
+    color : #FF9559;
+    min-width: 37px;
+    min-height: 37px;
+
+
+  }
+
+  .travel-type-btn{
+    background-color: #fff;
+    border-radius: 100px;
+    border: 2px solid #8BCDFB;
+    box-shadow: #cdcdcd;
+    font-size: 20px;
+    font-weight: 800;
+    color : #8BCDFB;
+    min-width: 37px;
+    min-height: 37px;
+  }
+
+
+  .save-btn{
+    background-color: #fff;
+    border-radius: 100px;
+    border: 2px solid #cdcdcd;
+    box-shadow: #000;
+    color : #cdcdcd;
+    font-size : 28px;
+    min-width: 37px;
+    min-height: 37px;
+    max-height: 37px;
+}
